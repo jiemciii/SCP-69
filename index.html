@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emoji with Effects</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .emoji {
+      font-size: 100px;
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .emoji:hover {
+      transform: scale(1.2) rotate(10deg);
+      filter: drop-shadow(0 0 10px red);
+    }
+
+    .emoji:active {
+      animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    .popup {
+      position: fixed;
+      bottom: 50px;
+      background: #ff0055;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .popup.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="emoji" onclick="showPopup()">🖕</div>
+
+  <div class="popup" id="popup">ayban bading</div>
+
+  <script>
+    function showPopup() {
+      const popup = document.getElementById('popup');
+      popup.classList.add('show');
+
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 2000); // Popup disappears after 2 seconds
+    }
+  </script>
+
+</body>
+</html>
