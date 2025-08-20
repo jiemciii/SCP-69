@@ -59,4 +59,3 @@ draw_stem()
 
 flower.hideturtle()
 screen.mainloop()
-
